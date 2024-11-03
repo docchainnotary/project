@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Process</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="lib/pandoc.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Process</h1>
+</header>
+<p><strong>Decentralized Digital Notary Service Workflow:</strong></p>
+<p>The workflow of the Decentralized Digital Notary Service involves
+several key steps that enable users to notarize and verify documents
+securely using the Stellar blockchain and Soroban smart contracts. Below
+is a detailed description of each step in the process:</p>
+<ol type="1">
+<li><strong>Document Selection:</strong>
+<ul>
+<li>The user begins by selecting the document they wish to notarize or
+verify through the frontend application. This could be any digital file
+requiring proof of authenticity and timestamping.</li>
+</ul></li>
+<li><strong>Local Document Hashing:</strong>
+<ul>
+<li><strong>Hashing Algorithm:</strong> The frontend application uses
+the SHA-256 cryptographic hashing algorithm to generate a unique hash of
+the selected document.</li>
+<li><strong>Purpose of Hashing:</strong> This hash acts as a digital
+fingerprint of the document. Even a minor change in the document content
+would result in a completely different hash, ensuring the integrity of
+the notarization process.</li>
+<li><strong>Privacy Assurance:</strong> Since only the hash is used, the
+actual content of the document remains private and is not uploaded or
+stored on the blockchain.</li>
+</ul></li>
+<li><strong>User Authentication:</strong>
+<ul>
+<li><strong>Stellar Address:</strong> The user provides their Stellar
+blockchain address, which serves as their unique identifier on the
+network.</li>
+<li><strong>Wallet Connection:</strong> If required, the user connects
+their Stellar wallet to the application to facilitate interaction with
+the smart contract.</li>
+</ul></li>
+<li><strong>Notarization Request Submission:</strong>
+<ul>
+<li><strong>Data Packaging:</strong> The frontend application packages
+the document hash along with the user’s Stellar address.</li>
+<li><strong>Smart Contract Invocation:</strong> It then sends a
+transaction to invoke the <code>notarize</code> function of the Soroban
+smart contract on the Stellar blockchain.</li>
+</ul></li>
+<li><strong>Smart Contract Execution for Notarization:</strong>
+<ul>
+<li><strong>Unique Key Creation:</strong> The smart contract creates a
+unique key by combining the user’s Stellar address and the document
+hash.</li>
+<li><strong>Storage of Proof:</strong> It stores this key along with the
+current blockchain timestamp in its persistent storage.</li>
+<li><strong>Immutable Record:</strong> This action creates an immutable
+record on the blockchain, providing proof that the document existed in
+its current form at a specific point in time.</li>
+</ul></li>
+<li><strong>Confirmation of Notarization:</strong>
+<ul>
+<li><strong>Transaction Receipt:</strong> The blockchain processes the
+transaction and provides a receipt containing details such as the
+transaction ID and timestamp.</li>
+<li><strong>User Notification:</strong> The frontend application
+retrieves this information and displays a confirmation to the user,
+serving as proof of successful notarization.</li>
+</ul></li>
+<li><strong>Verification Request (If Applicable):</strong>
+<ul>
+<li><strong>Document Selection for Verification:</strong> To verify a
+document, a user selects the document in question through the frontend
+application.</li>
+<li><strong>Hash Generation:</strong> The application generates the
+SHA-256 hash of the document locally.</li>
+<li><strong>Data Submission:</strong> It submits the document hash and
+the relevant Stellar address to the smart contract by invoking the
+<code>verify</code> function.</li>
+</ul></li>
+<li><strong>Smart Contract Execution for Verification:</strong>
+<ul>
+<li><strong>Existence Check:</strong> The smart contract checks its
+storage to see if the unique key (user address and document hash)
+exists.</li>
+<li><strong>Verification Result:</strong> It determines whether the
+document has been previously notarized and retrieves the associated
+timestamp if available.</li>
+</ul></li>
+<li><strong>Display of Verification Results:</strong>
+<ul>
+<li><strong>Positive Verification:</strong> If the document hash exists
+in the storage, the application informs the user that the document was
+notarized, providing the timestamp and other relevant details.</li>
+<li><strong>Negative Verification:</strong> If the hash is not found,
+the user is informed that there is no record of notarization for the
+document on the blockchain.</li>
+<li><strong>User Interface:</strong> The frontend presents this
+information in a user-friendly manner, possibly with options to download
+or share the verification proof.</li>
+</ul></li>
+<li><strong>Optional IPFS Integration:</strong>
+<ul>
+<li><strong>Decentralized Storage (Optional):</strong> Users may choose
+to upload their documents to IPFS (InterPlanetary File System) for
+decentralized storage.</li>
+<li><strong>IPFS Hash Linking:</strong> The IPFS hash can be linked with
+the blockchain record, allowing retrieval of the document if
+needed.</li>
+<li><strong>Enhanced Decentralization:</strong> This step further
+decentralizes the storage aspect but is optional to accommodate privacy
+preferences.</li>
+</ul></li>
+<li><strong>Security and Privacy Measures:</strong>
+<ul>
+<li><strong>Data Encryption:</strong> All data transmitted between the
+user’s device and the blockchain network is encrypted to prevent
+interception or tampering.</li>
+<li><strong>Anonymity:</strong> Since only the hash and the user’s
+blockchain address are recorded, users maintain a level of
+anonymity.</li>
+<li><strong>No Sensitive Data on Blockchain:</strong> The actual
+document content is never uploaded to the blockchain, mitigating risks
+associated with data breaches.</li>
+</ul></li>
+<li><strong>User Interface Features:</strong>
+<ul>
+<li><strong>Dashboard Access:</strong> Users have access to a dashboard
+where they can view all their notarized documents and verification
+statuses.</li>
+<li><strong>Transaction History:</strong> The application may provide a
+history of all transactions related to notarization and
+verification.</li>
+<li><strong>Support and Assistance:</strong> Users can access help
+resources or contact support for any issues encountered during the
+process.</li>
+</ul></li>
+</ol>
+<p><strong>Summary of the Workflow:</strong></p>
+<ul>
+<li><strong>Initiation:</strong> User selects a document and chooses to
+either notarize or verify it.</li>
+<li><strong>Hashing:</strong> The document is hashed locally using
+SHA-256 to create a unique identifier.</li>
+<li><strong>Interaction with Blockchain:</strong>
+<ul>
+<li>For notarization, the hash and user address are sent to the smart
+contract’s <code>notarize</code> function.</li>
+<li>For verification, the hash and user address are sent to the
+<code>verify</code> function.</li>
+</ul></li>
+<li><strong>Smart Contract Processing:</strong>
+<ul>
+<li>Notarization stores the hash and timestamp on the blockchain.</li>
+<li>Verification checks for the existence of the hash and retrieves the
+timestamp if available.</li>
+</ul></li>
+<li><strong>Results Delivery:</strong> The application presents the
+notarization or verification results to the user, providing necessary
+proof and details.</li>
+<li><strong>Security:</strong> Throughout the process, security and
+privacy are maintained by encrypting communications and avoiding storage
+of actual document content on the blockchain.</li>
+</ul>
+<p><strong>Key Points to Note:</strong></p>
+<ul>
+<li><strong>Decentralization:</strong> The entire process eliminates the
+need for centralized authorities, relying instead on the transparency
+and immutability of the blockchain.</li>
+<li><strong>Immutable Records:</strong> Once a document hash is stored
+on the blockchain, it cannot be altered or deleted, ensuring a permanent
+record.</li>
+<li><strong>Global Accessibility:</strong> Users anywhere in the world
+can access the service without geographical limitations.</li>
+<li><strong>Cost-Effectiveness:</strong> Utilizing the Stellar
+blockchain keeps transaction costs low, making the service
+affordable.</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li><strong>Legal Documents:</strong> Contracts, agreements, and wills
+can be notarized to prove their existence at a certain date.</li>
+<li><strong>Intellectual Property:</strong> Creators can notarize their
+works to establish authorship and creation date.</li>
+<li><strong>Academic Credentials:</strong> Certificates and transcripts
+can be verified for authenticity.</li>
+<li><strong>Financial Records:</strong> Important financial documents
+can be securely notarized for auditing purposes.</li>
+</ul>
+<p>The Decentralized Digital Notary Service provides a secure,
+efficient, and user-friendly way to notarize and verify documents,
+leveraging the power of blockchain technology to bring trust and
+transparency to the process.</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "docchain",
+  "version": "1.0.0",
+  "description": "Secure, decentralized digital document notarization",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "serve": "fileserver.js",
+    "build": "tools/mksite",
+    "build:content": "tools/mksite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisrobison/docchain.git"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "serve-index": "^1.9.1"
+  },
+  "keywords": [
+    "stellar",
+    "blockchain",
+    "notary",
+    "esign",
+    "document",
+    "verification"
+  ],
+  "author": "Christopher Robison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisrobison/docchain/issues"
+  },
+  "homepage": "https://github.com/chrisrobison/docchain#readme"
+}

@@ -1,0 +1,29 @@
+A notary public or other officer completing this
+certificate verifies only the identity of the
+individual who signed the document to which this
+certificate is attached, and not the truthfulness,
+accuracy, or validity of that document.
+
+State of California
+
+County of __________________________
+
+Online Notarial Act
+
+On ______________, 20____, before me, __________________________________(here insert name and title of officer), 
+personally appeared _______________________________ by means of audio-video communication, 
+who represented to me that he/she/they was/were physically located in _________________________, 
+and proved to me on the basis of satisfactory evidence to be the person(s) whose name(s) is/are subscribed to 
+the within electronic record and acknowledged to me that he/she/they executed the same in his/her/their 
+authorized capacity(ies) and that by his/her/their signature(s) on the electronic record the person(s), 
+or the entity upon behalf of which the person(s) acted, executed the electronic record.
+
+I certify under PENALTY OF PERJURY under the laws of the State of California that the foregoing paragraph 
+is true and correct.
+
+WITNESS my hand and official seal.
+
+%%ELECTRONIC_SEAL%%
+%%ELECTRONIC_SIGNATURE%%
+
+

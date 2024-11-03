@@ -1,0 +1,186 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "title": "DocChain Notary",
+      "markdown": "",
+      "html": "content/home.html",
+      "icon": "fa-home",
+      "className": "home-page"
+    },
+    {
+      "id": "about",
+      "title": "About",
+      "markdown": "md/about.md",
+      "html": "content/about.html",
+      "icon": "fa-info-circle",
+      "className": "about-section",
+      "_children": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "markdown": "md/overview.md",
+          "html": "content/overview.html",
+          "icon": "fa-eye",
+          "className": "overview-page"
+        },
+        {
+          "id": "team",
+          "title": "Team",
+          "markdown": "md/team.md",
+          "html": "content/team.html",
+          "icon": "fa-people-group",
+          "className": "team-page"
+        },
+        {
+          "id": "pitch",
+          "title": "Elevator Pitch",
+          "markdown": "md/pitch.md",
+          "html": "content/pitch.html",
+          "icon": "fa-person-chalkboard",
+          "className": "pitch-page"
+        }
+
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Platform",
+      "markdown": "md/platform.md",
+      "html": "content/platform.html",
+      "icon": "fa-layer-group",
+      "className": "platform-section",
+      "_children": [
+        {
+          "id": "features",
+          "title": "Features",
+          "markdown": "md/features.md",
+          "html": "content/features.html",
+          "icon": "fa-star",
+          "className": "features-page"
+        },
+        {
+          "id": "architecture",
+          "title": "Architecture",
+          "markdown": "md/architecture.md",
+          "html": "content/architecture.html",
+          "icon": "fa-sitemap",
+          "className": "architecture-page"
+        },
+        {
+          "id": "process",
+          "title": "Process",
+          "markdown": "md/process.md",
+          "html": "content/process.html",
+          "icon": "fa-cogs",
+          "className": "process-page"
+        },
+        {
+          "id": "solutions",
+          "title": "Solutions",
+          "markdown": "md/solutions.md",
+          "html": "content/solutions.html",
+          "icon": "fa-puzzle-piece",
+          "className": "solutions-page"
+        }
+      ]
+    },
+    {
+      "id": "developers",
+      "title": "Developers",
+      "markdown": "",
+      "html": "#",
+      "icon": "fa-code",
+      "className": "developers-section",
+      "_children": [
+        {
+          "id": "api",
+          "title": "API",
+          "markdown": "md/api.md",
+          "html": "content/api.html",
+          "icon": "fa-plug",
+          "className": "api-page"
+        },
+        {
+          "id": "github",
+          "title": "GitHub",
+          "markdown": "",
+          "target": "_blank",
+          "html": "https://github.com/chrisrobison/docchain",
+          "icon": "fa-puzzle-piece",
+          "className": "api-github"
+        },
+ 
+        {
+          "id": "resources",
+          "title": "Resources",
+          "markdown": "md/resources.md",
+          "html": "content/resources.html",
+          "icon": "fa-book",
+          "className": "resources-page"
+        }
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Pricing & Plans",
+      "markdown": "md/pricing.md",
+      "html": "content/pricing.html",
+      "icon": "fa-dollar-sign",
+      "className": "pricing-section",
+      "_children": [
+        {
+          "id": "monetization",
+          "title": "Monetization",
+          "markdown": "md/monetization.md",
+          "html": "content/monetization.html",
+          "icon": "fa-chart-line",
+          "className": "monetization-page"
+        }
+      ]
+    },
+    {
+      "id": "project",
+      "title": "Project",
+      "markdown": "md/project.md",
+      "html": "content/project.html",
+      "icon": "fa-project-diagram",
+      "className": "project-section",
+      "_children": [
+        {
+          "id": "proposal",
+          "title": "Proposal",
+          "markdown": "md/proposal.md",
+          "html": "content/proposal.html",
+          "icon": "fa-file-alt",
+          "className": "proposal-page"
+        },
+        {
+          "id": "go-to-market",
+          "title": "Go-to-Market",
+          "markdown": "md/go-to-market.md",
+          "html": "content/go-to-market.html",
+          "icon": "fa-rocket",
+          "className": "go-to-market-page"
+        },
+        {
+          "id": "success",
+          "title": "Success",
+          "markdown": "md/success.md",
+          "html": "content/success.html",
+          "icon": "fa-trophy",
+          "className": "success-page"
+        }
+      ]
+    },
+      {
+        "id": "contact",
+        "title": "Contact",
+        "markdown": "md/contact.md",
+        "html": "content/contact.html",
+        "icon": "fa-envelope",
+        "className": "contact-page"
+      }
+  ]
+}
+

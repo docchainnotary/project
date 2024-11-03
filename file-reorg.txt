@@ -1,0 +1,37 @@
+DocChain Project Repositories
+│
+├── docchain-notary/
+│   ├── contract/              # Main Soroban contract code
+│   ├── api/                   # Python API server
+│   ├── scripts/
+│   │   ├── build/            # Build scripts
+│   │   └── setup/            # Setup scripts
+│   ├── tests/                # Test suite
+│   └── docs/                 # Documentation
+│
+├── docchain-project/
+│   ├── content/              # Markdown files
+│   │   ├── posts/
+│   │   └── pages/
+│   ├── static/               # Static assets
+│   ├── api/                  # Signup/login API
+│   ├── themes/               # Site themes
+│   └── config/               # Site generator config
+│
+├── docchain-site/
+│   ├── content/              # Marketing content
+│   │   ├── services/
+│   │   └── about/
+│   ├── static/               # Marketing assets
+│   ├── api/                  # Client onboarding API
+│   ├── themes/               # Site themes
+│   └── config/               # Site generator config
+│
+└── docchain-core/
+    ├── notary/               # Notary web application
+    │   ├── document_upload/
+    │   └── signing/
+    ├── accounts/             # Account management
+    ├── verification/         # Document verification
+    ├── api/                  # Main API services
+    └── docs/                 # API documentation

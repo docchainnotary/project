@@ -1,0 +1,97 @@
+flowchart TD
+    subgraph Actors
+        U[Individual User]
+        B[Business User]
+        N[Professional Notary]
+        V[Document Verifier]
+        A[System Admin]
+    end
+    
+    subgraph "Document Management"
+        D1[Upload Document]
+        D2[View Documents]
+        D3[Manage Document Access]
+        D4[Download Document]
+    end
+
+    subgraph "Notarization Services"
+        N1[Request Notarization]
+        N2[Multi-Signature Request]
+        N3[Sign Document]
+        N4[Verify Document]
+        N5[View Notarization History]
+    end
+
+    subgraph "Account Management"
+        AM1[Register Account]
+        AM2[Manage Profile]
+        AM3[Manage API Keys]
+        AM4[View Transaction History]
+    end
+
+    subgraph "Admin Functions"
+        AD1[Monitor System Health]
+        AD2[Manage User Access]
+        AD3[View System Analytics]
+        AD4[Configure System Parameters]
+    end
+
+    %% User Connections
+    U --> D1
+    U --> D2
+    U --> D3
+    U --> D4
+    U --> N1
+    U --> N2
+    U --> N3
+    U --> N4
+    U --> N5
+    U --> AM1
+    U --> AM2
+    U --> AM4
+
+    %% Business User Connections
+    B --> D1
+    B --> D2
+    B --> D3
+    B --> D4
+    B --> N1
+    B --> N2
+    B --> N3
+    B --> N4
+    B --> N5
+    B --> AM1
+    B --> AM2
+    B --> AM3
+    B --> AM4
+
+    %% Professional Notary Connections
+    N --> N1
+    N --> N3
+    N --> N4
+    N --> N5
+    N --> AM1
+    N --> AM2
+    N --> AM4
+
+    %% Verifier Connections
+    V --> N4
+    V --> D2
+    V --> AM1
+    V --> AM2
+
+    %% Admin Connections
+    A --> AD1
+    A --> AD2
+    A --> AD3
+    A --> AD4
+    A --> AM2
+
+    %% Styling
+    classDef actor fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    classDef usecase fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    classDef admin fill:#bfb,stroke:#333,stroke-width:2px,color:black
+
+    class U,B,N,V,A actor
+    class D1,D2,D3,D4,N1,N2,N3,N4,N5,AM1,AM2,AM3,AM4 usecase
+    class AD1,AD2,AD3,AD4 admin

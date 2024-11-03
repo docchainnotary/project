@@ -1,0 +1,137 @@
+#!/usr/local/bin/php
+<?php
+$basedir = "/home/cdr/domains/docchainnotary.com/www";
+
+if (file_exists("../site.json") && !file_exists("./site.json")) {
+    chdir("..");
+}
+$exe = array_shift($argv);
+$verbose = 0;
+$force = 0;
+$files = [];
+
+while ($arg = array_shift($argv)) {
+    switch ($arg) {
+    case "-f":
+        $force = 1;
+        break;
+    case "-v":
+        $verbose = 1;
+        break;
+    default:
+        $files[] = $arg;
+        
+    }
+}
+
+if (count($files)) {
+    foreach ($files as $file) {
+        $obj = new stdClass();
+        if (preg_match("/\/(.+?)\.md/", $file, $m)) {
+            $id = $m[1];
+        }
+        $obj->html = "content/{$id}.html";
+        $obj->title = ucfirst($id);
+        $obj->markdown = "md/{$id}.md";
+
+        convert($obj);        
+    }
+    exit;
+} 
+
+if (!file_exists("site.json")) {
+    print "ERROR: No site.json in current directory.\n\nScript must be run from root of project.\n";
+    exit;
+}
+$tree = json_decode(file_get_contents("site.json"));
+
+$itemtpl = <<<EOT
+    <li class="nav-item"> 
+        <a href="%%html%%" %%target%% class="nav-link"> 
+        <i class="fa-solid %%icon%%"></i>
+        <p>%%title%%</p>
+    </a> 
+    %%children%%
+</li>
+EOT;
+
+$out = '<ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">';
+$out .= maketree($tree->pages, 1);
+$out .= "</ul>";
+
+$html = file_get_contents("index.template.html");
+$html = preg_replace("/\%\%NAV_MARKUP\%\%/", $out, $html);
+
+$oldhtml = file_get_contents("index.html");
+if ($oldhtml == $html) {
+    print "Skipping identical content for index.html\n";
+} else {
+    file_put_contents("index.new.html", $html);
+    print "Wrote ".strlen($html)." bytes to index.new.html\n";
+    print "\n\n\033[31mNOTE: \033[0m \033[1;37mBe sure to copy \033[0m\033[0;36mindex.new.html\033[0m to \033[0;36mindex.html\033[0m once checked.\n\n" ;
+}
+
+$obj2 = new stdClass();
+
+function maketree($items, $noul=0) {
+    global $itemtpl;
+    global $force;
+    global $verbose;
+    global $obj2;
+
+    if (!$noul) $out = '<ul class="nav nav-treeview">';
+
+    foreach ($items as $obj) {
+        if ($verbose) print "Processing {$obj->title}...";
+        if (isset($obj->_children)) {
+            $obj->children = makeTree($obj->_children);
+        }
+        if (isset($obj->target)) {
+            $obj->target = " target=\"{$obj->target}\" ";
+        }
+        $obj2 = $obj;
+        $out .= preg_replace_callback("/\%\%(\w+)\%\%/", function($m) {
+            global $obj2;
+            if (isset($obj2->{$m[1]})) {
+                return $obj2->{$m[1]};
+            } else {
+                return "";
+            }
+        }, $itemtpl);
+        if ($verbose) print "Done.\nChecking files...\n";
+        if (file_exists($obj->markdown)) {
+            if ($verbose) print "Found markdown {$obj->markdown}\n";
+            $htmltime = 0;
+            $mdtime = 0;
+            if (!$force) {
+                $htmltime = filemtime($obj->html);
+                $mdtime = filemtime($obj->markdown);
+            }
+            if (($mdtime > $htmltime) || $force) {
+                print "Converting {$obj->markdown} to {$obj->html}\n";
+                $cmd = "pandoc --template default.template.html --css lib/pandoc.css --highlight-style breezedark -f markdown -t html5 --standalone --metadata title=\"{$obj->title}\" \"{$obj->markdown}\" > {$obj->html}";
+                if ($verbose) print $cmd."\n";
+                $results = `$cmd`;
+                if ($verbose) print $results."\n";
+            }
+        }
+ 
+    }
+    if (!$noul) $out .= '</ul>';
+    
+    return $out;
+}
+
+function convert($obj) {
+    global $verbose;
+    print "Converting {$obj->markdown} to {$obj->html}\n";
+    $cmd = "pandoc --template default.template.html --css lib/pandoc.css --highlight-style breezedark -f markdown -t html5 --standalone --metadata title=\"{$obj->title}\" \"{$obj->markdown}\"";
+    if ($verbose) print $cmd."\n";
+    $html = `$cmd`;
+
+    if (isset($html) && isset($obj->html)) {
+        file_put_contents($obj->html, $html);
+    }
+    
+    return $html;
+}

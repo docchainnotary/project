@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact DocChain Notary</title>
+  <link rel="canonical" href="https://cdr2.com/crblog/contact.html" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css" integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous"><!--end::Fonts--><!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css" integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous"><!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css" integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous"><!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="/lib/adminlte.css"><!--end::Required Plugin(AdminLTE)-->
+    <link rel="icon" type="image/svg+xml" href="/img/logo-small.svg">
+<style>
+  .required {
+    color: #c00;
+  }
+  div.sanserif div.form-group label {
+    font-weight: 600;
+    font-family: "Lexend", sans-serif;
+  }
+  #card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: "Lexend", sans-serif;
+  }
+  .blurb {
+    bottom: 0rem;
+    font-size: 16px;
+    width: 30vw;
+    margin-top: 2rem;
+    text-align: left;
+    border-top: 1px solid #0006;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: #006;
+  }
+  input[type="text"], input[type="email"] {
+    border-radius: 4px;
+    border: 1px solid #0009;
+    height: 3rem;      
+  }
+  textarea.form-control {
+    border-radius: 4px;
+    border: 1px solid #0009;
+  }
+  .card {
+    background: linear-gradient(-30deg, #fff0, #eee, #fff3);
+  }
+  .card-heading {
+    width: 30vw;
+    margin: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .fields {
+    width: 65%;
+  }
+  #card-name {
+    text-align:left;
+	border-top:1px solid #0006;
+	margin-top:1rem;
+	padding-top:3rem;
+	font-size: 15px;
+  }
+  @media screen and (max-width: 640px) {
+    #card-body {
+      flex-direction: column;
+    }
+    .fields {
+      width: 100%;
+    }
+    .card-heading {
+      width: 100%;
+      margin: 0px;
+    }
+    #card-head { 
+    }
+    #card-name {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #0006;
+      margin-top: 0px;
+    }
+    .blurb {
+      display: none;
+    }
+  }
+
+</style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body class="hold-transition iframe-mode">
+<!-- Site wrapper -->
+<div class="wrapper">
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+    <form action="contact.php" method="POST" style="width:100%">
+      <input type="hidden" name="token" id="token" value="">
+      <!-- Default box -->
+      <div class="card">
+        <div id="card-body" class="card-body">
+          <div class="card-heading sanserif" style="flex-direction:column;justify-content:space-between !important;">
+            <h1><img src="https://cdr2.com/crblog/assets/img/stamp.svg" height="65">Contact</h1>
+            <div id="card-head">
+              <div id="card-name" class="sanserif">
+                <h2>DocChain Notary</h2>
+                  <p>
+                    <i class="fas fa-phone"></i> <a title="Telephone 4158106991" href="tel:+14158106991">(415) 810-6991</a><br/>
+                    <i class="fas fa-envelope"></i> <a title="Email info@docchainnotary.com" href="mailto:info@docchainnotary.com">info@docchainnotary.com</a>
+                </p>
+              </div>
+              <div class="sanserif">
+                <p class="lead blurb">Have a question? Just want to say "hi"? Or maybe you just want to see the cool animation at the end. Complete the form here with your comments.</p>
+              </div>
+            </div>
+          </div>
+          <div class="sanserif fields">
+            <div class="form-group">
+              <label for="inputName">Name<span class="required">*</span></label>
+              <input type="text" name="name" id="inputName" class="form-control" required/>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail">E-Mail<span class="required">*</span></label>
+              <input type="email" name="email" id="inputEmail" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="inputSubject">Subject</label>
+              <input type="text" name="subject" id="inputSubject" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="inputMessage">Message<span class="required">*</span></label>
+              <textarea id="inputMessage" name="message" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="form-group" style="display:flex;">
+              <div class="g-recaptcha" style="float:left;" data-sitekey="6LdCVXAqAAAAAC7iYO3-rZTf-g1fmJRLh9_zUMA4"></div>
+              <input type="submit" class="btn btn-primary" value="Send message">
+            </div>
+            <div style="position:absolute;top:1rem; right:1rem;font-size:0.9rem;display:inline-block; float:right;"><span class="required">*</span> Required field</div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/lib/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/lib/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/lib/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+  <script>
+(function() {
+  let app = {
+    init() {
+      fetch("token.php").then(r=>r.json()).then(data=>{
+        console.log("Got token");
+        console.dir(data);
+        document.querySelector("#token").value = data.token;
+      });
+    }
+  };
+  window.app = app;
+  app.init();
+})();
+  </script>
+</body>
+</html>
